@@ -200,7 +200,9 @@ class RobotAxeLibrary:
                             <td>%s</td>
                         </tr>
                     </table>
-                    """%(violation['id'], node['any'][0]['message'], node['html'].replace('<', '&lt;').replace('>', '&gt;'), node['target'][0])
+                    """%(violation['id'],node['any'][0]['message'] if len(node['any']) > 0 else '',
+                        node['html'].replace('<', '&lt;').replace('>', '&gt;'),
+                        node['target'][0] if len(node['target']) > 0 else '')
 
                     new_html = style + table_issues
 
